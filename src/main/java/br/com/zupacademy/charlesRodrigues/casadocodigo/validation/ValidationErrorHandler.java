@@ -1,6 +1,5 @@
 package br.com.zupacademy.charlesRodrigues.casadocodigo.validation;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
@@ -18,9 +17,10 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class ValidationErrorHandler {
 
-    @Autowired
     private MessageSource messageSource;
-
+    public ValidationErrorHandler(MessageSource messageSource){
+        this.messageSource = messageSource;
+    }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BindException.class)

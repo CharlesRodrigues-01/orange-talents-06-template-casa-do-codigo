@@ -30,6 +30,6 @@ public class AutorRequestDto {
     public String getDescricao() { return descricao; }
 
     public Autor converter() {
-        return new Autor(nome, email, descricao);
+        return new Autor(this.nome, this.email, this.descricao);
     }
 }
