@@ -2,7 +2,6 @@ package br.com.zupacademy.charlesRodrigues.casadocodigo.requestDto;
 
 import br.com.zupacademy.charlesRodrigues.casadocodigo.anotattions.UniqueValue;
 import br.com.zupacademy.charlesRodrigues.casadocodigo.model.Autor;
-import br.com.zupacademy.charlesRodrigues.casadocodigo.model.Categoria;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

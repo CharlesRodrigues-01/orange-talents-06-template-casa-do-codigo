@@ -27,7 +27,6 @@ public class AutorController {
         autorRepository.save(autor);
 
         return ResponseEntity.ok().body(new AutorResponseDto(autor));
-
     }
 
 }
