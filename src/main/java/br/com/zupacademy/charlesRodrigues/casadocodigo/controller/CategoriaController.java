@@ -4,9 +4,7 @@ import br.com.zupacademy.charlesRodrigues.casadocodigo.model.Categoria;
 import br.com.zupacademy.charlesRodrigues.casadocodigo.repository.CategoriaRepository;
 import br.com.zupacademy.charlesRodrigues.casadocodigo.requestDto.CategoriaRequestDto;
 import br.com.zupacademy.charlesRodrigues.casadocodigo.responseDto.CategoriaResponseDto;
-import br.com.zupacademy.charlesRodrigues.casadocodigo.validation.ProibeNomeCategoriaDuplicadoValidator;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -17,15 +15,8 @@ import javax.validation.Valid;
 public class CategoriaController {
 
     private final CategoriaRepository repository;
-    private ProibeNomeCategoriaDuplicadoValidator proibeNomeCategoriaDuplicadoValidator;
-    public CategoriaController(CategoriaRepository repository, ProibeNomeCategoriaDuplicadoValidator proibeNomeCategoriaDuplicadoValidator) {
+    public CategoriaController(CategoriaRepository repository) {
         this.repository = repository;
-        this.proibeNomeCategoriaDuplicadoValidator = proibeNomeCategoriaDuplicadoValidator;
-    }
-
-    @InitBinder
-    private void init(WebDataBinder binder){
-        binder.addValidators(proibeNomeCategoriaDuplicadoValidator);
     }
 
     @PostMapping
