@@ -34,10 +34,4 @@ public class LivroController {
         return ResponseEntity.ok().body(new LivroResponseDto(livro));
     }
 
-    @GetMapping
-    public List<LivroResponseDto> listarLivros() {
-        List<Livro> livros = livroRepository.findAll();
-        return LivroResponseDto.converter(livros);
-    }
-
 }
