@@ -1,9 +1,11 @@
 package br.com.zupacademy.charlesRodrigues.casadocodigo.requestDto;
 
+import br.com.zupacademy.charlesRodrigues.casadocodigo.anotattions.ExistId;
 import br.com.zupacademy.charlesRodrigues.casadocodigo.anotattions.UniqueValue;
 import br.com.zupacademy.charlesRodrigues.casadocodigo.model.Autor;
 import br.com.zupacademy.charlesRodrigues.casadocodigo.model.Categoria;
 import br.com.zupacademy.charlesRodrigues.casadocodigo.model.Livro;
+import br.com.zupacademy.charlesRodrigues.casadocodigo.model.Pais;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.util.Assert;
 
@@ -36,9 +38,11 @@ public class LivroRequestDto {
     private LocalDate dataPublicacao;
 
     @NotNull
+    @ExistId(fieldName = "id", domainClass = Categoria.class)
     private Long idCategoria;
 
     @NotNull
+    @ExistId(fieldName = "id", domainClass = Autor.class)
     private Long idAutor;
 
     public LivroRequestDto(@NotBlank String titulo, @NotBlank String resumo, @NotBlank String sumario,
