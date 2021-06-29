@@ -1,7 +1,5 @@
 package br.com.zupacademy.charlesRodrigues.casadocodigo.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -18,6 +16,7 @@ public class Livro {
     private String titulo;
     @NotBlank
     private String resumo;
+    @NotBlank
     private String sumario;
     @NotNull
     private BigDecimal valor;
@@ -25,7 +24,6 @@ public class Livro {
     private Integer numeroPaginas;
     @NotBlank
     private String isbn;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd", timezone = "GMT")
     private LocalDate dataPublicacao;
 
     @ManyToOne
@@ -38,8 +36,9 @@ public class Livro {
     public Livro() {
     }
 
-    public Livro(String titulo, String resumo, String sumario, BigDecimal valor, Integer numeroPaginas, String isbn,
-                 LocalDate dataPublicacao, Autor autor, Categoria categoria) {
+    public Livro(@NotBlank String titulo, @NotBlank String resumo, @NotBlank String sumario,
+                 @NotNull BigDecimal valor, @NotNull Integer numeroPaginas, @NotBlank String isbn,
+                 LocalDate dataPublicacao, @NotNull Autor autor, @NotNull Categoria categoria) {
         this.titulo = titulo;
         this.resumo = resumo;
         this.sumario = sumario;

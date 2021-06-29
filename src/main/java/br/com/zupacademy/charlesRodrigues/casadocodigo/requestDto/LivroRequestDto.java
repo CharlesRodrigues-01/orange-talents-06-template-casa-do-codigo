@@ -20,6 +20,7 @@ public class LivroRequestDto {
     @NotBlank
     @Size(max = 500)
     private String resumo;
+    @NotBlank
     private String sumario;
     @NotNull
     @Min(value = 20, message = "Preço mínimo de R$ 20,00")
@@ -31,7 +32,7 @@ public class LivroRequestDto {
     @UniqueValue(fieldName = "isbn", domainClass = Livro.class)
     private String isbn;
     @Future(message = "Esta data precisa ser no futuro")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd", timezone = "GMT")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate dataPublicacao;
 
     @NotNull
@@ -40,8 +41,9 @@ public class LivroRequestDto {
     @NotNull
     private Long idAutor;
 
-    public LivroRequestDto(String titulo, String resumo, String sumario, BigDecimal valor, Integer numeroPaginas,
-                           String isbn, LocalDate dataPublicacao, Long idCategoria, Long idAutor) {
+    public LivroRequestDto(@NotBlank String titulo, @NotBlank String resumo, @NotBlank String sumario,
+                           @NotNull BigDecimal valor, @NotNull Integer numeroPaginas, @NotBlank String isbn,
+                           LocalDate dataPublicacao, @NotNull Long idCategoria, @NotNull Long idAutor) {
         this.titulo = titulo;
         this.resumo = resumo;
         this.sumario = sumario;
