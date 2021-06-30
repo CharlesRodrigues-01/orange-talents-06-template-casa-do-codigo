@@ -17,6 +17,9 @@ public class Estado {
     @ManyToOne
     private Pais pais;
 
+    @Deprecated
+    public Estado(){}
+
     public Estado(@NotBlank @NotNull String nome, @NotNull Pais pais) {
         this.nome = nome;
         this.pais = pais;
